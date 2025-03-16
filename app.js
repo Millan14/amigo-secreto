@@ -9,12 +9,15 @@ function agregarAmigo() {
         return; // Si el campo está vacío, no hacemos nada
     }
     
-    amigos.push(nombreAmigo); // Agregar el nombre al arreglo
+    if (!isNaN(nombreAmigo)) {
+        alert('No se permite ingresar números. Por favor, ingrese un nombre válido.');
+        return; // Si es un número, no lo agregamos
+    }
     
-    // Limpiar el campo de texto
+    amigos.push(nombreAmigo); 
+    
     input.value = '';
 
-    // Actualizar la lista visual
     actualizarLista();
 }
 
